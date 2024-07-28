@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Admin Panel</title>
+    <style>
+        /* Resetting default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling the menu */
+.menu {
+    background-color: #cfb874;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.menu h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu ul li a:hover {
+    background-color: #555;
+}
+
+/* Styling the content */
+.content {
+    padding: 20px;
+}
+
+/* You can add more specific styles for different content here */
+
+    </style>
+</head>
+<body>
+    <div class="menu">
+         
+        <ul>
+            <li><a href="#" onclick="loadService()">Service</a></li>
+            <li><a href="#" onclick="loadMenu()">Menu</a></li>
+            <li><a href="#" onclick="loadEvent()">Event</a></li>
+        </ul>
+    </div>
+
+    <div class="content" id="content">
+        <!-- Content will be loaded here -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<script>
+    function loadMenu() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("content").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "menu.php", true);
+    xhttp.send();
+}
+
+function loadEvent() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("content").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "event.php", true);
+    xhttp.send();
+}
+
+
+
+</script>
+
+
